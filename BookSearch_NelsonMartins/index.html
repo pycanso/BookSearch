@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+     <link rel="icon" href="img/backgrd_min.png">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Book Search</title>
+    <script>
+        //Mostrar erros
+        onerror = handleErr;
+        var txt = "";
+        function handleErr(msg, url, l) {
+          txt = "There was an error on this page.\n\n";
+          txt += "Error: " + msg + "\n";
+          txt += "URL: " + url + "\n";
+          txt += "Line: " + l + "\n\n";
+          txt += "Click OK to continue.\n\n";
+          alert(txt);
+          return true;
+        }/*
+        //Mostrar Favoritos (Não funciona)
+        function mostrarid(id){
+            idDiv = document.getElementById(id);
+            idFav = document.createElement('div');
+            document.body.appendChild(idFav);
+            idFav.outerHTML=idDiv.outerHTML;
+            //alert(idDiv.outerHTML);
+            
+        const favorito = {
+            user:localStorage.getItem(emailLog.value),
+            content:idDiv.outerHTML
+        }
+        favoritos.push(favorito);
+        localStorage.setItem('Fav'+favorito.user, JSON.stringify(favoritos));
+        }
+         */
+    </script>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html"> <img src="img/backgrd_minW.png"></a>
+        <span id="user">
+            <span id="userLogged"></span>
+            <button id="btnSign">Sign In</button>
+            <button id="btnLog">Login</button>
+            <button id="btnSair">Sair</button>
+        </span>
+    </nav>
+
+    <section class="main">
+
+        <div class="section" id="inicio"></div>
+
+        <div class="section" id="signIn">
+            <div class="container">
+                <form id="formulario_signIn">
+                    <h1>SIGN IN</h1>
+                    <label for="username"><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" id="username" name="username" required><br>
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email" id="email" name="email" required><br>
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" id="psw" name="psw" minlength="1" maxlength="8"
+                        required><br>
+                    <label for="psw"><b>Confirm Password</b></label>
+                    <input type="password" placeholder="Confirm Password" id="confPsw" name="confPsw" minlength="1"
+                        maxlength="8" required><br><br>
+                    <input type="button" class="" id="add"  value="Adicionar">
+                    <input type="button" class="" id="cancelSign" value="Cancelar">
+                </form>
+            </div>
+        </div>
+
+        <div class="section" id="login">
+            <div class="container">
+                <form id="formulario_logIn">
+                    <h1>LOGIN</h1>
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email" name="email" id="emailLog" required><br>
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" id="pswLog" minlength="4"
+                        maxlength="8" required><br><br>
+                    <input type="button" class=""  id="entrar" value="Entrar">
+                    <input type="button" class=""  id="logCancel" value="Cancelar"><br><br>
+                    <p><b>First time? Need to sign in.</b></p>
+                    <input type="button" class="" id="notSigned" value="Sign In">
+
+                </form>
+            </div>
+        </div>
+        <div class="section" id="search">
+
+            <form id="searchForm" action="javascript:findBooks()">
+                <div class="input-field">
+                    <input type="search" id="books">
+                    <button type="submit" class="btn red">Search Books</button>
+                </div>   
+            </form>
+            <div id="result" align="center">
+            </div>
+        </div>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+            <script src="js/projectBook.js"></script>
+            <script src="js/appJS_div.js"></script>
+        </div>
+    </section>
+    <footer>
+        <p>&#169 Copyright Nelson Martins ISCTE-SINTRA 2020</p>
+    </footer>
+</body>
+
+</html>
